@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="../controllers/home.js"></script>
+    <script src="../controllers/index.js"></script>
     <link rel="stylesheet" href="../views/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Divulga ONG</title>
 </head>
-<body ng-controller="home">
+<body ng-controller="index">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -18,13 +18,13 @@
               <div class="collapse navbar-collapse right" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="home.html">Página Incial</a>
+                    <a class="nav-link" aria-current="page" href="index.html">Página Incial</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="cadastro.html">Cadastrar ONG</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="lista.html">Listar ONGs</a>
+                    <a class="nav-link" aria-current="page" href="lista.html">Pesquisar ONGs</a>
                   </li>
                 </ul>
               </div>
@@ -47,10 +47,10 @@
           <h3><b>Últimas ONGs cadatradas:</b></h3>            
           <div class="row card item-ong" aria-hidden="true" ng-repeat="ong in ongs track by $index">
             <h5 class="card-title">{{ong.nome}}</h5>
-            <p class="card-text item-text">CNPJ: {{ong.cnpj}}</p>
-            <p class="card-text item-text">Endereço: {{ong.endereco}} - {{ong.bairro}} - {{ong.cidade}} - {{ong.estado}}</p>
-            <p class="card-text item-text">CEP: {{ong.cep}} - {{ong.pais}}</p>
-            <p class="card-text item-text">Telefone: {{ong.telefone}} - Email: {{ong.email}} - Site: {{ong.site}}</p>
+            <p class="card-text item-text"><b>CNPJ:</b> {{ong.cnpj}}</p>
+            <p class="card-text item-text"><b>Endereço:</b> {{ong.endereco}}, {{ong.numero}} - <b>Bairro:</b> {{ong.bairro}} - <b>Cidade:</b> {{ong.cidade}} - {{ong.estado}}</p>
+            <p class="card-text item-text"><b>CEP:</b> {{ong.cep}} - <b>País:</b> {{ong.pais}}</p>
+            <p class="card-text item-text"><b>Telefone:</b> {{ong.telefone}} - <b>Email:</b> {{ong.email}} - <b>Site:</b> {{ong.site}}</p>
           </div>
         </div>
     </div>

@@ -18,27 +18,44 @@
           <div class="collapse navbar-collapse right" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.html">Página Incial</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Página Incial</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="cadastro.html">Cadastrar ONG</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="lista.html">Listar ONGs</a>
+                <a class="nav-link active" aria-current="page" href="lista.html">Pesquisar ONGs</a>
               </li>
             </ul>
           </div>
           <img src="../vendor/images/logo_univesp.png" width="300px" class="rounded float-end" alt="Logo da Univesp">
         </div>
       </nav>
-        <div class="container item-ong">
-          <h3><b>Listar ONGs:</b></h3>            
+        <div class="container">
+          <h3><b>Pesquisar ONGs:</b></h3>
+          <form class="row item-ong">
+            <div class="mb-3 col-lg-4">
+              <input type="text" placeholder="Nome" class="form-control" ng-model="nome">
+            </div>
+            <div class="mb-3 col-lg-4">
+              <input type="text" placeholder="Cidade" class="form-control" ng-model="cidade">
+            </div>
+            <div class="mb-3 col-lg-4">
+              <button type="submit" type="submit" class="btn btn-primary col-lg-12" ng-click="search()">Pesquisar</button>
+            </div>
+            <div class="alert alert-warning row" role="alert" ng-show="statusbusca.vazio">
+              Nenhuma ONG encontrada!
+            </div>
+          </form>
+          <div class="row alert alert-danger" role="alert" ng-show="statusbusca.erro">
+            Erro ao buscar ONGs! Tente novamente mais tarde.
+          </div>
           <div class="row card item-ong" aria-hidden="true" ng-repeat="ong in ongs track by $index">
             <h5 class="card-title">{{ong.nome}}</h5>
-            <p class="card-text item-text">CNPJ: {{ong.cnpj}}</p>
-            <p class="card-text item-text">Endereço: {{ong.endereco}} - {{ong.bairro}} - {{ong.cidade}} - {{ong.estado}}</p>
-            <p class="card-text item-text">CEP: {{ong.cep}} - {{ong.pais}}</p>
-            <p class="card-text item-text">Telefone: {{ong.telefone}} - Email: {{ong.email}} - Site: {{ong.site}}</p>
+            <p class="card-text item-text"><b>CNPJ:</b> {{ong.cnpj}}</p>
+            <p class="card-text item-text"><b>Endereço:</b> {{ong.endereco}}, {{ong.numero}} - <b>Bairro:</b> {{ong.bairro}} - <b>Cidade:</b> {{ong.cidade}} - {{ong.estado}}</p>
+            <p class="card-text item-text"><b>CEP:</b> {{ong.cep}} - <b>País:</b> {{ong.pais}}</p>
+            <p class="card-text item-text"><b>Telefone:</b> {{ong.telefone}} - <b>Email:</b> {{ong.email}} - <b>Site:</b> {{ong.site}}</p>
           </div>
         </div>
     </div>

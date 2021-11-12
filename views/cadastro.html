@@ -18,13 +18,13 @@
         <div class="collapse navbar-collapse right" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="home.html">Página Incial</a>
+              <a class="nav-link" aria-current="page" href="index.html">Página Incial</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="cadastro.html">Cadastrar ONG</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="lista.html">Listar ONGs</a>
+              <a class="nav-link" aria-current="page" href="lista.html">Pesquisar ONGs</a>
             </li>
           </ul>
         </div>
@@ -33,64 +33,77 @@
   </nav>
     <div class="container">
         <div class="container item-ong">
-            <h3><b>Cadastre a sua ONG agora!</b></h3>
+            <h3><b>Cadastre sua ONG agora!</b></h3>
             <tencializar a captação de recursos de ONGs e Projetos que melhoram a vida da sociedade em sua volta. Temos que lembrar que as ONGs possuem diversas naturezas e trabalhos e, para continuarem desempenhando esse serviço, necessitam de ajuda financeira. Visando isso, o Divulga ONG veio para reunir as ONGs com seus dados e incentivar a contribuição por parte da sociedade.</p>
+        </div>
+        <div class="alert alert-success row" role="alert" ng-show="cadastro.sucesso">
+          ONG cadastrada com sucesso!
+        </div>
+        <div class="alert alert-danger row" role="alert" ng-show="cadastro.erro">
+          Erro ao cadastrar ONG! Tente novamente mais tarde.
+        </div>
+        <div class="alert alert-warning row" role="alert" ng-show="cadastro.incompleto">
+          Não foi possível cadastrar a ONG! Preencha os dados obrigatórios!
         </div>
         <form class="container">
           <div class="row">
             <div class="mb-3 col-lg-6">
-              <label for="exampleInputEmail1" class="form-label">Nome</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-control" ng-model="ong.nome">
             </div>
             <div class="mb-3 col-lg-3">
-              <label for="exampleInputPassword1" class="form-label">CNPJ</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">CNPJ</label>
+              <input type="text" class="form-control" ng-model="ong.cnpj">
             </div>
             <div class="mb-3 col-lg-3">
-              <label for="exampleInputPassword1" class="form-label">Telefone</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Telefone</label>
+              <input type="text" class="form-control" ng-model="ong.telefone">
             </div>
           </div>
           <div class="row">
             <div class="mb-3 col-lg-6">
-              <label for="exampleInputEmail1" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label class="form-label">E-mail</label>
+              <input type="text" class="form-control" ng-model="ong.email">
             </div>
             <div class="mb-3 col-lg-6">
-              <label for="exampleInputPassword1" class="form-label">Site</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Site</label>
+              <input type="text" class="form-control" ng-model="ong.site">
             </div>
           </div>
           <div class="row">
-            <div class="mb-3 col-lg-3">
-              <label for="exampleInputEmail1" class="form-label">Endereço</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="mb-3 col-lg-2">
+              <label class="form-label">Endereço</label>
+              <input type="text" class="form-control" ng-model="ong.endereco">
             </div>
             <div class="mb-3 col-lg-1">
-              <label for="exampleInputPassword1" class="form-label">Número</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Número</label>
+              <input type="text" class="form-control" ng-model="ong.numero">
             </div>
             <div class="mb-3 col-lg-2">
-              <label for="exampleInputPassword1" class="form-label">Bairro</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">CEP</label>
+              <input type="text" class="form-control" ng-model="ong.cep">
             </div>
             <div class="mb-3 col-lg-2">
-              <label for="exampleInputPassword1" class="form-label">Cidade</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Bairro</label>
+              <input type="text" class="form-control" ng-model="ong.bairro">
             </div>
             <div class="mb-3 col-lg-2">
-              <label for="exampleInputPassword1" class="form-label">Estado</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">Cidade</label>
+              <input type="text" class="form-control" ng-model="ong.cidade">
+            </div>
+            <div class="mb-3 col-lg-1">
+              <label class="form-label">Estado</label>
+              <input type="text" class="form-control" ng-model="ong.estado">
             </div>
             <div class="mb-3 col-lg-2">
-              <label for="exampleInputPassword1" class="form-label">País</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label class="form-label">País</label>
+              <input type="text" class="form-control" ng-model="ong.pais">
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4"><button type="submit" class="btn btn-primary col-lg-12">Cadastrar</button></div>
-            <div class="col-lg-4"><button type="submit" class="btn btn-danger col-lg-12">Cancelar</button></div>
-            <div class="col-lg-4"><button type="submit" class="btn btn-light col-lg-12">Limpar</button></div>
+            <div class="col"><button type="submit" class="btn btn-primary col-lg-12" ng-click="salvar(ong)">Cadastrar</button></div>
+            <div class="col"><button type="submit" class="btn btn-danger col-lg-12" ng-click="cancelar()">Cancelar</button></div>
+            <div class="col"><button type="submit" class="btn btn-light col-lg-12" ng-click="limpar()">Limpar</button></div>
           </div>
         </form>
     </div>
